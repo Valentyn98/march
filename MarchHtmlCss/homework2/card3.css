@@ -1,0 +1,32 @@
+
+.grand_father{
+    margin: 0 auto;
+    width: 700px;
+    height: 500px;
+}
+.father{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+}
+.children{
+    width: 300px;
+    height: 140px;
+    background-color: yellow;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.icon{
+    width: 75px;
+    height: 75px;
+    background-color: black;
+}
+.children_text{
+    text-align: center;
+    width: 190px;
+}

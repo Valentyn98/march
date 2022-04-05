@@ -1,0 +1,34 @@
+.main_box{
+    margin: 0 auto;
+    width: 700px;
+    height: 650px;
+    background-color: cornflowerblue;
+}
+.father{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.top{
+    width: 650px;
+    height: 150px;
+    background-color: red;
+}
+.middle{
+    width: 650px ;
+    display: flex;
+    justify-content: space-between;
+}
+.middle_box{
+    width: 150px;
+    height: 150px;
+    background-color: yellow;
+}
+.bottom{
+    width: 650px;
+    height: 250px;
+    background-color: green;
+}

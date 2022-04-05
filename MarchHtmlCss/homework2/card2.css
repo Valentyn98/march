@@ -1,0 +1,32 @@
+.father_middle{
+    margin: 0 auto;
+    width: 900px;
+    height: auto;
+
+}
+h1{
+    text-align: center;
+    background-color: #fec356;
+    border: 3px solid black;
+}
+.middle{
+    display: flex;
+    justify-content: space-around;
+}
+.middle_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    height: 280px;
+    background-color: #fec356;
+    border: 3px solid black;
+}
+button{
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid black;
+    color: #fec356;
+    background-color: black;
+}

@@ -1,0 +1,23 @@
+.father_middle{
+    margin: 0 auto;
+    width: 800px;
+    height: auto;
+}
+.middle{
+    display: flex;
+    justify-content: space-around;
+}
+.middle_box{
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-around;*/
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    background-color: #fec356;
+    border: 3px solid black;
+}
+.button{
+    text-decoration: none;
+}
