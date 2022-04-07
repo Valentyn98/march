@@ -1,0 +1,45 @@
+.grand_father{
+    margin: 150px auto;
+    width: 800px;
+    height: 300px;
+}
+.father_block{
+    display: flex;
+    width: 800px;
+    height: 300px;
+    gap: 10px
+}
+.block{
+    background-color: #fec356;
+    width: 250px;
+    height: 250px;
+    border: 2px solid black;
+    position: relative;
+}
+.icon_block{
+    width: 75px;
+    height: 75px;
+    border: 2px solid black;
+    background-color: cornflowerblue;
+    border-radius: 50px;
+    position: absolute;
+    top:-38px;
+    left: 90px;
+}
+img{
+    height: 35px;
+    position: absolute;
+    top:20px;
+    left: 20px;
+}
+.name_block,.p_text_block{
+    text-align: center;
+}
+.name_block{
+    padding-top: 25px;
+}
+button{
+    position: absolute;
+    bottom: 20px;
+    left: 85px;
+}
