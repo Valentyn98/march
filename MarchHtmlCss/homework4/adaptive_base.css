@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+}
+.abc{
+    height: 650px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+.a{
+    height: 150px;
+    width: 100%;
+    background-color: cornflowerblue;
+}
+.bc{
+    height: 500px;
+    width: 100%;
+    display: flex;
+    column-gap: 5px;
+
+}
+.b{
+    height: 500px;
+    width: 70%;
+    background-color: pink;
+}
+.c{
+    height: 500px;
+    width: 30%;
+    background-color: antiquewhite;
+}

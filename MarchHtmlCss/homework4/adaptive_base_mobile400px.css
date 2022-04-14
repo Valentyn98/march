@@ -1,0 +1,18 @@
+@media screen and (max-width: 400px){
+ .bc{
+     display: flex;
+     flex-direction: column;
+     row-gap: 5px;
+ }
+    .a{
+        height: 200px;
+    }
+    .b{
+        height: 400px;
+        width: 100%;
+    }
+    .c{
+        height: 200px;
+        width: 100%;
+    }
+}
