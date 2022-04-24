@@ -164,9 +164,28 @@
     }
     // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
     let word = [ 'a', 'b', 'c']
-
+    let sLov = ''
+for (let i = 0; i < word.length; i ++){
+    sLov += word[i]
+}
+    console.log(sLov);
     // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу while зібрати всі букви в слово.
+    let wordAr = [ 'a', 'b', 'c'];
+    let sLov2 = '';
+    let b = 0;
+    while (b < wordAr.length){
+        sLov2 += wordAr[b]
+        b++
+    }
+    console.log(sLov2)
     // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for of зібрати всі букви в слово.
+        let wordArr = [ 'a', 'b', 'c'];
+let sLov1 = '';
+    for (const wordElement of wordArr) {
+        sLov1 += wordElement
+    }
+
+    console.log(sLov1);
 </script>
 </body>
 </html>
