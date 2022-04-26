@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    // - створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б
+    function p(a,b){
+    return  a * b;
+    }
+    console.log(p(2, 4));
+    // - створити функцію яка обчислює та повертає площу кола з радіусом r
+    function c(r){
+        return Math.PI*r*2;
+    }
+    console.log(c(2));
+    // - створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r
+    function cul(h,r){
+        let s = 2*Math.PI*r*h;
+        return s;
+    }
+    console.log(cul(10, 5));
+    // - створити функцію яка приймає масив та виводить кожен його елемент
+    let arr = [10,20,65,87,'lk']
+    function logArr(arr){
+        for (const arrElement of arr) {
+            console.log(arrElement);
+        }
+    }
+    logArr(arr)
+    // - створити функцію яка створює параграф з текстом. Текст задати через аргумент
+    let text = prompt('text')
+    function createP (text){
+        document.write(`${text}`)
+    }
+    createP (text)
+    // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
+    function ulAndLi (text,num){
+        document.write(`<ul>`)
+        for (let i = 0; i < num ; i++) {
+            document.write(`<li>${text}</li>`)
+        }
+        document.write(`</ul>`)
+    }
+    ulAndLi (text,3)
+    // - створити функцію яка створює ul з трьома елементами li.
+    // Текст li задати через аргумент всім однаковий.Кількість li визначається другим аргументом,
+    // який є числовим (тут використовувати цикл)
+    function ulAli (text,num){
+        document.write(`<ul>`)
+        for (let i = 0; i < num ; i++) {
+            document.write(`<li>${text}</li>`)
+        }
+        document.write(`</ul>`)
+    }
+    ulAli (text,3)
+
+    // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
+    let arrConstr = [22,'hi',null,true,123,'hello']
+    function constr (arguments){
+        document.write(`<ul>`)
+        for (const argument of arguments) {
+            document.write(`<li>${argument} </li>`)
+        }
+        document.write(`</ul>`)
+    }
+    // constr (arrConstr)
+
+    // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ.
+    // Для кожного об'єкту окремий блок.
+    let arrObj = [{id:1,name:'Vasya',age:24},{id:3,name:'Stepan',age:34},{id:4,name:'Viktor',age:30}]
+    function arrOfObj(object){
+        for (const objectElement of object) {
+            document.write(`<div> `)
+            document.write(objectElement.id)
+            document.write(objectElement.name)
+            document.write(objectElement.age)
+            document.write(`</div>`)
+        }
+    }
+    // arrOfObj(arrObj)
+
+    // - створити функцію яка повертає найменьше число з масиву.
+    let arrCount = [1,20,3,4,22,13]
+    function min(num){
+      let max = num[0]
+        let min = num[0]
+        for (const numElement of num) {
+            if (numElement < min) min = numElement
+            if (max < numElement) max = numElement
+        }
+        console.log(min);
+        console.log(max);
+    }
+
+    min(arrCount)
+    // - створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13
+function plus(a){
+        let res = 0;
+    for (const argument of a) {
+         res = res + argument
+    }
+    console.log(res);
+}
+    plus(arrCount)
+
+</script>
+</body>
+</html>
