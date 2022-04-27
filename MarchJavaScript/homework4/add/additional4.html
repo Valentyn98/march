@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    // - створити функцію яка приймає три числа та виводить найменьше. (Без Math.min!)
+    let one = 4;
+    let two = 131;
+    let three = 150;
+    function min(a,b,c){
+       if(a < b && a < c){
+           console.log(a);
+       }else if (b < c && b < a ){
+           console.log(b);
+       }else if (c < a && c < b){
+           console.log(c);
+       }
+    }
+    min(one,two,three) //Оно работет , но мне кажется тут чего то не хватает.
+    // - створити функцію яка приймає три числа та виводить найбільше. (Без Math.max!)
+    function max(a,b,c){
+        if(a > b && a > c){
+            console.log(a);
+        }else if (b > c && b > a ){
+            console.log(b);
+        }else if (c > a && c > b){
+            console.log(c);
+        }
+    }
+    max(one,two,three)
+    // - створити функцію яка повертає найбільше число з масиву
+    let maxArr = [11,3,2,4,6,7]
+    function maxA(maxArr) {
+        let maxx = maxArr[0];
+        for (const argument of maxArr) {
+            if (maxx < argument) maxx = maxArr
+        }
+        console.log(maxx);
+    }
+    maxA(maxArr)
+    // - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
+    let medCount = [1,10,15,20,25]
+    function med(medCount){
+        let n = 0;
+        for (const medCountElement of medCount) {
+            n = n + medCountElement /2;
+        }
+        console.log(n);
+    }
+    med(medCount)
+    // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше (Math використовувати заборонено);
+    let on = 4;
+    let tw = 131;
+    let thr = 150;
+    function nimMax(on,tw,thr){
+
+    }
+    nimMax(on,tw,thr)
+    // - створити функцію яка заповнює масив рандомними числами
+    let arrRandom  = []
+    function adder(arrRandom){
+        for (let i = arrRandom.length; i < 15; i++) {
+            arrRandom.push(Math.round(Math.random()*100))
+        }
+    }
+    adder(arrRandom)
+    console.log(arrRandom);
+
+    // (цей код генерує рандомні числа в діапазоні від 0 до 100 - Math.round(Math.random()*100)) та виводить його.
+
+    // - створити функцію яка заповнює масив рандомними числами в діапазоні від 0 до limit. limit - аргумент, який характеризує кінцеве значення діапазону.
+    let arrRando  = []
+    let limit = 56
+    function ader(arrRandom,limit){
+        for (let i = arrRandom.length; i < 15; i++) {
+            arrRandom.push(Math.round(Math.random()*limit))
+        }
+    }
+    ader(arrRando,limit)
+    console.log(arrRando);
+    // - Функція приймає масив та робить з нього новий масив в зворотньому порядку. [1,2,3] -> [3, 2, 1].
+    let rev1 = [1,2,3]
+    // let rev2 = [3,2,1]
+    function reverse(rev1){
+        let rev2 = []
+        for (let i = rev1.length-1; i >= 0; i--)
+        {
+            rev2.push(rev1[i])
+        }
+        console.log(rev2);
+    }
+    reverse(rev1)
+    // - створити функцію, яка якщо приймає один аргумент, просто вивдоить його, якщо два аргументи - складає або конкатенує їх між собою.
+    let argOne = 15
+    let argTwo = 25
+
+    function WorkWArg(argOne,argTwo){
+        let sumOfArg = 0;
+        if(arguments.length === 1){
+            console.log(arguments);
+         } else if (arguments.length >1){
+            for (const argument of arguments) {
+                sumOfArg = sumOfArg + argument
+            }
+            console.log(sumOfArg);
+        }
+    }
+    WorkWArg(argOne,argTwo)
+    // - створити функцію  яка приймає два масиви та скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив.
+    //     EXAMPLE:
+    // [1,2,3,4]
+    //     [2,3,4,5]
+    // результат
+    //     [3,5,7,9]
+    let arrEx1 = [1,2,3,4]
+    let arrEx2 = [2,3,4,5]
+    let emptyArr = []
+    function sumOfArr(arrEx1,arrEx2){
+        // for (let i = 0; i < arrEx1.length; i++) {
+        //
+        // }
+        for (let i = 0; i < arrEx2.length; i++) {
+            emptyArr.push(arrEx1[i] + arrEx2[i])
+        }
+
+        console.log(emptyArr);
+    }
+    sumOfArr(arrEx1,arrEx2)
+    // - Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
+    // EXAMPLE:
+    //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ name, age, model ]
+    let ar = [{name: 'Dima', age: 13}, {model: 'Camry'}]
+    let arrKey = []
+    for (const arElement of ar) {
+        for (const arElementKey in arElement) {
+            arrKey.push(arElementKey)
+        }
+    }
+    console.log(arrKey);
+    //     - Створити функцію яка приймає масив будь яких объектів, та повертає масив значень всіх обєктів
+    // EXAMPLE:
+    //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ Dima, 13, Camry ]
+    let arr = [{name: 'Dima', age: 13}, {model: 'Camry'}]
+    let arrrKey = []
+    for (const arElement of arr) {
+        for (const arElementKey in arElement) {
+            arrrKey.push(arElement[arElementKey])
+        }
+    }
+    console.log(arrrKey);
+
+</script>
+</body>
+</html>
