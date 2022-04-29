@@ -100,18 +100,63 @@
     }
     createP(text)
     // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
-
+    let createUl = (num,text) => {
+        document.write(`<ul>`)
+        for (let i = 0; i < num; i++) {
+            document.write(`<li>${text}</li>`)
+        }
+        document.write(`</ul>`)
+    }
+    createUl(3,text)
     // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
+    //сделал выше
+
     // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
+    let arrRE = ['weqwe',23,123,'w34',null]
+    let constr = (arrRE) => {
+        for (let i = 0; i <arrRE.length ; i++) {
+            document.write(`<li>${arrRE[i]}</li>`)
+        }
+    }
+    constr(arrRE)
     // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
+    let arrOfObj = [{id:1, name:'Val', age:22},{id:2, name:'Batya', age:55}]
+    let structure = (arrOfObj) => {
+        for (const argument of arrOfObj) {
+            document.write(`<div>${argument.id}</div>`)
+            document.write(`<div>${argument.name}</div>`)
+            document.write(`<div>${argument.age}</div>`)
+        }
+    }
+    structure(arrOfObj)
     // - створити функцію яка повертає найменьше число з масиву
+    let arrMin = [22,2,3,4,5,]
+    let arMin = (arrMin) => {
+        let min = arrMin[0]
+        for (const argument of arrMin) {
+            if (argument < min) min= argument
+        }
+        console.log(min);
+    }
+    arMin(arrMin)
     // - створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13
-    //
+    let mas = [1,2,10]
+    let plus = (mas) =>{
+        let empty = 0;
+        for (let i = 0; i < mas.length; i++) {
+            empty = empty + mas[i]
+        }
+        console.log(empty);
+    }
+    plus(mas)
     // -створити функцію, яка приймає масив з 2х об'єктів, та міняє їх місцями.
-
-
-
-
+   let arrWObj = [{id:1, name:'Val', age:22},{id:2, name:'Batya', age:55}]
+    let revArr = (arrWObj) => {
+        for (let i = arrWObj.length-1; i >= 0; i--) {
+            console.log(arrWObj[i]);
+        }
+    }
+    revArr(arrWObj)
 
 
 
