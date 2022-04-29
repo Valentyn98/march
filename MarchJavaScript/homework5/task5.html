@@ -36,21 +36,71 @@
     randomCount(arrRandCount)
     // - створити функцію яка заповнює масив рандомними числами
     let emptyArr = []
-    let pushRandom = () => {
-
+    let pushRandom = (emptyArr,num) => {
+        for (let i = emptyArr.length; i < num ; i++) {
+            emptyArr.push(Math.round(Math.random()*100))
+        }
+        console.log(emptyArr);
     }
+    pushRandom(emptyArr,15)
     // (цей код генерує рандомні числа в діапазоні від 0 до 100 - Math.round(Math.random()*100)) та виводить його.
+
     // - створити функцію яка заповнює масив рандомними числами в діапазоні від 0 до limit. limit - аргумент, який характеризує кінцеве значення діапазону.
+    // let emptyArr = []
+    // let pushRandom = (emptyArr,num) => {
+    //     for (let i = emptyArr.length; i < num ; i++) {
+    //         emptyArr.push(Math.round(Math.random()*100))
+    //     }
+    // }
+    // console.log(emptyArr);
+    // pushRandom(emptyArr,15)
+    //**********
     // - Функція приймає масив та робить з нього новий масив в зворотньому порядку. [1,2,3] -> [3, 2, 1].
-    //
-    //
+    let rev1 = [1,2,3,4]
+    let reverse = (rev1) =>{
+        let rev2 = []
+        for (let i = rev1.length-1; i >= 0 ; i--) {
+            rev2.push(rev1[i])
+        }
+        console.log(rev2);
+    }
+
+    reverse(rev1)
     //     Переробити на стрілочні функції з попереднього дз
     // - створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б
+    let p = (a,b) => {
+        p = a * b
+        return p
+    }
+    console.log(p(4, 6));
     // - створити функцію яка обчислює та повертає площу кола з радіусом r
+    let rad = (r) =>{
+        let p = Math.PI*Math.pow(r,2)
+        return p
+    }
+    console.log(rad(12));
     // - створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r
+    let pC = (h,r) => {
+        let s = 2*Math.PI*r*h;
+        console.log(s);
+    }
+    pC(20,7)
     // - створити функцію яка приймає масив та виводить кожен його елемент
+    let myArr = [2,3,4,4,2,4,1]
+    let showArr = (myArr) =>{
+        for (const argument of myArr) {
+            console.log(argument);
+        }
+    }
+    showArr(myArr)
     // - створити функцію яка створює параграф з текстом. Текст задати через аргумент
+    let text = 'qweqweqwe'
+    let createP = (text) =>{
+        document.write(`<p>${text}</p>`)
+    }
+    createP(text)
     // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
+
     // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
     // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
     // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
