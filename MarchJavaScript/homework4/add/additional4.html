@@ -58,11 +58,20 @@
     // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше (Math використовувати заборонено);
     let on = 4;
     let tw = 131;
-    let thr = 150;
-    function nimMax(on,tw,thr){
 
+    function nimMax(on,tw){
+    let armin = arguments[0]
+        let armax = arguments[0]
+        for (const argumentsElement of arguments) {
+            if(argumentsElement < armin)
+                return armin = argumentsElement
+            if( armax< argumentsElement)
+               armax = argumentsElement
+            console.log(armax);
+        }
+        console.log(armin)
     }
-    nimMax(on,tw,thr)
+    nimMax(on,tw)
     // - створити функцію яка заповнює масив рандомними числами
     let arrRandom  = []
     function adder(arrRandom){
