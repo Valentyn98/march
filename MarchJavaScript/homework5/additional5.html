@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // в разаработке =)
+
+//     Всі функції повинні бути описані стрілочним типом!!!!
+//         - створити функцію яка приймає три числа та виводить найменьше. (Без Math.min!)
+    let ranArr =[3,5,12]
+    let minF = (ranArr) => {
+        let min  = ranArr[0]
+        for (const ranArrElement of ranArr) {
+            if ( ranArrElement < min ) min = ranArrElement
+        }
+        console.log(min);
+    }
+    minF(ranArr)
+
+//     - створити функцію яка приймає три числа та виводить найбільше. (Без Math.max!)
+    let maxF = (one,two,three) =>{
+        if (one > two && one > three){
+            console.log(one);
+        }else if(two > one && two > three ){
+            console.log(two);
+        }else if (three > one && three > two){
+            console.log(three);
+        }
+    }
+    maxF(2,12,1)
+//     - створити функцію яка повертає найбільше число з масиву
+    let randArr =[3,5,12]
+    let maxFunc = (randArr) => {
+        let min  = randArr[0]
+        for (const ranArrElement of randArr) {
+            if ( ranArrElement > min ) min = ranArrElement
+        }
+        console.log(min);
+    }
+    maxFunc(randArr)
+//     - створити функцію яка повертає найменьше число з масиву
+    let randomArr =[3,5,12]
+    let minFunc = (randomArr) => {
+        let min  = randomArr[0]
+        for (const ranArrElement of randomArr) {
+            if ( ranArrElement < min ) min = ranArrElement
+        }
+        console.log(min);
+    }
+    minFunc(randomArr)
+//     - створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13
+    let arrPlus = [1,2,10]
+    let plusArr = (arrPlus) =>{
+        let emptyArr = []
+        let em = 0;
+        for (let i = 0; i < arrPlus.length; i++) {
+            em = em + arrPlus[i]
+        }
+        console.log(em);
+        emptyArr.push(em)
+        console.log(emptyArr);
+    }
+    plusArr(arrPlus)
+//     - Дано натуральное число n. Выведите все числа от 1 до n.
+
+function rec (start){
+    let n = 23
+    console.log(start);
+    start++
+    if (start < n){
+        rec(start)
+    }
+}
+    rec(0)
+
+//     - Даны два целых числа A и В . Выведите все числа от A до B включительно, в порядке возрастания, если A < B, или в порядке убывания в противном случае.
+        function recTwo (a,b){
+            console.log(a);
+            a++
+            if (a <= b){
+                recTwo(a,b)
+            }
+        }
+        recTwo(1,15)
+//     -   функція Приймає масив та число "i", та міняє місцями об`єкт який знаходиться в індексі "i" на "i+1"
+//   EXAMPLE:
+//   foo([9,8,0,4], 0) // ==> [ 8, 9, 0, 4 ]
+//   foo([9,8,0,4], 1) // ==> [ 9 ,0, 8, 4 ]
+//   foo([9,8,0,4], 2) // ==> [ 9, 8, 4, 0 ]
+//
+// - Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.
+// Двожина масиву від 2 до 100
+// EXAMPLE:
+// [1,0,6,0,3] => [1,6,3,0,0]
+// [0,1,2,3,4] => [1,2,3,4,0]
+// [0,0,1,0]   => [1,0,0,0]
+
+</script>
+</body>
+</html>
