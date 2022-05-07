@@ -96,14 +96,56 @@
     // - всі червоні карти
     // - всі буби
     // - всі трефи від 9 та більше
-    //
     // {
     //     cardSuit: '', // 'spade', 'diamond','heart', 'clubs'
     //         value: '', // '6'-'10', 'ace','jack','queen','king','joker'
     //     color:'', // 'red','black'
     // }
-
-
+    const cards = [
+        {cardSuit: 'spade', value:6, color:'black'},
+        {cardSuit: 'diamond', value:6, color:'red'},
+        {cardSuit: 'heart', value:6, color:'black'},
+        {cardSuit: 'clubs', value:6, color:'red'},
+        {cardSuit: 'spade', value:7, color:'black'},
+        {cardSuit: 'diamond', value:7, color:'red'},
+        {cardSuit: 'heart', value:7, color:'black'},
+        {cardSuit: 'clubs', value:7, color:'red'},
+        {cardSuit: 'spade', value:9, color:'black'},
+        {cardSuit: 'diamond', value:9, color:'red'},
+        {cardSuit: 'heart', value:10, color:'black'},
+        {cardSuit: 'clubs', value:10, color:'red'},
+        {cardSuit: 'heart', value:'valet', color:'black'},
+        {cardSuit: 'clubs', value:'valet', color:'red'},
+        {cardSuit: 'spade', value:'tus', color:'black'},
+        {cardSuit: 'diamond', value:'tus', color:'red'},
+        {cardSuit: 'heart', value:'tus', color:'black'},
+        {cardSuit: 'clubs', value:'tus', color:'red'}
+    ]
+    let filter = cards.filter(function (cards){
+        if (cards.cardSuit === 'spade' && cards.value === 'tus'){
+            console.log(cards);
+        }
+    })
+    let filterNumber = cards.filter(function (cards){
+        if (cards.value === 6 ){
+            console.log(cards);
+        }
+    })
+    let filterRed = cards.filter(function (cards){
+        if (cards.color === 'red'){
+            console.log(cards);
+        }
+    })
+    let filterClubs = cards.filter(function (cards){
+        if (cards.cardSuit === 'clubs'){
+            console.log(cards);
+        }
+    })
+    let filterSpade = cards.filter(function (cards){
+        if (cards.cardSuit === 'spade' && (typeof cards.value === 'string'|| cards.value > 9) ){
+            console.log(cards);
+        }
+    })
 </script>
 </body>
 </html>
