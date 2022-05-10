@@ -62,17 +62,12 @@ let sort =  arrRandom.sort(function (a,b){
     return a - b
 })
 console.log(sort);
-
 // <!-- - створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень.
-
 // відфільтрувати  його за допомоги filter, залишивши тільки парні числа (без 0!)-->
-
-
-    // let zero = value.indexOf(0)
 let newArray = []
 
 let filter = sort.filter(function (value){
-        if (value % 2 === 0){
+        if (value % 2 === 0 && value !== 0){
             newArray.push(value)
         }
     })
