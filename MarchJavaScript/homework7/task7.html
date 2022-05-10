@@ -174,7 +174,7 @@ class ClassCar {
         }
     }
 }
-let vod = new Carss ('Tesla', 'Mask',2021,238,650);
+let vod = new Cars ('Tesla', 'Mask',2021,238,650);
 
 vod.drive();
 vod.increaseMaxSpeed (222);
@@ -185,6 +185,34 @@ vod.info ();
 //  Сторити об'єкт класу "принц" за допомоги класу який має поля ім'я, вік, туфелька яку він знайшов.
 //          За допомоги циклу знайти яка попелюшка повинна бути з принцом.
 //          Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
+function Popelus(name,year,foodSize) {
+    this.name = name
+    this.year = year
+    this.foodSize = foodSize
+}
+    let harem = [
+        new Popelus('Dusia',2003,43),
+        new Popelus('Dusia2',2003,22),
+        new Popelus('Dusia3',2003,33),
+        new Popelus('Dusia4',2010,12),
+        new Popelus('Dusia5',2006,23),
+        new Popelus('Dusia6',1945,12),
+        new Popelus('Dusia7',2002,11)
+    ]
+function Prince(name,year,findFood) {
+    this.name = name
+    this.year = year
+    this.findFood = findFood
+}
+let prince = new Prince('David',20,33)
+let whoIsIt = (harem,prince)=>{
+    for (const haremElement of harem) {
+        if (haremElement.foodSize === prince.findFood){
+            console.log(`The name of his princes is ${haremElement.name} `)
+        }
+    }
+}
+whoIsIt(harem,prince)
 </script>
 </body>
 </html>
