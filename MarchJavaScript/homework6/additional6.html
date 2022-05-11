@@ -116,21 +116,66 @@ test(mail)
 
 //
 // <!-- - Напишіть функцію count(str, stringsearch), яка повертає кількість символів stringsearch у рядку str.-->
-// <!--let symb = "о", str = "Астрономия это наука о небесных объектах";-->
+let symb = "о", strL = "Астрономия это наука о небесных объектах";
 // <!--document.writeln(count(str, symb)) // 5-->
-//
+let count = (strL, symb)=>{
+    let countOfSymb = 0
+    for (let i = 0; i < strL.length; i++) {
+        if (strL[i] === symb){
+            countOfSymb += 1;
+        }
+    }
+    console.log(countOfSymb);
+}
+count(strL, symb)
 // <!-- - Напишіть функцію cutString(str, n), яка видаляє зайві слова з рядка str, залишивши у ній n слів.-->
-// <!--let str = "Сила тяжести приложена к центру масс тела";-->
+let strM = "Сила тяжести приложена к центру масс тела";
 // <!--document.writeln(cutString(str, 5)) // 'Сила тяжести приложена к центру'-->
-//
-//
+let cutStr = (strM, n) =>{
+   let word  =  strM.split(' ')
+    let  removedItems = word.splice(n);
+    console.log(removedItems);
+}
+// document.writeln(cutStr(strM, 5))
+cutStr(strM, 2)
 // <!-- -стоврити масив книжок (назва, кількість сторінок, автори , жанри).-->
+let arrOfBooks = [{
+    name:'RedLine',
+    pages:442,
+    auhtor:'Stiven',
+    genre:'Fantastic,Adventure'
+},{
+    name:'RLine',
+    pages:370,
+    auhtor:'VAG,Shekel,Ilya',
+    genre:'Fantastic'
+},{
+    name:'Вино из Бабочек',
+    pages:300,
+    auhtor:'Forgot, Dyda',
+    genre:'Adventure,Fantastic'
+}]
+
+
+let page = arrOfBooks.sort((a,b) => (a.pages - b.pages))
+console.log(page);
+let genre = arrOfBooks.sort((a,b) =>(a.genre.length - b.genre.length))
+console.log(genre);
 // <!-- -знайти наібльшу книжку.-->
 // <!-- - знайти книжку/ки з найбільшою кількістю жанрів-->
 // <!-- - знайти книжку/ки з найдовшою назвою-->
 // <!-- - знайти книжку/ки які писали 2 автори-->
+let twoAu = arrOfBooks.filter(function (auhtor){
+    let a =  auhtor.auhtor.split(' ')
+     return  a.length === 2
+})
+console.log(twoAu);
 // <!-- - знайти книжку/ки які писав 1 автор-->
-// <!-- - вісортувати книжки по кількості сторінок по зростанню-->
+let oneAu = arrOfBooks.filter(function (auhtor){
+    let a =  auhtor.auhtor.split(' ')
+    return  a.length === 1
+})
+console.log(oneAu);
 </script>
 </body>
 </html>
