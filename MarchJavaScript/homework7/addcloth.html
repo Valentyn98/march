@@ -8,35 +8,38 @@
 <script>
 let userCard = (numbers) =>{
     const card = {
-        getCardOptions (){
-            return card
-    },
         balance : 100,
         transactionLimit : 100,
         historyLogs : [],
         key : numbers,
-        putCredits (numPut){
-            card.balance = numPut
-        },
-        takeCredits(numTake){
-            card.balance = card.balance - numTake
-        },
-        setTransactionLimit(limitTran){
-            card.transactionLimit = limitTran
-        },
-        transferCredits(countOfCredits,numberCard){
-            if(numberCard === numbers && card.transactionLimit >= card.countOfCredits){
-                card.balance += countOfCredits
+    }
+        return {
+            getCardOptions() {
+                return card
+            },
+            putCredits(numPut) {
+                card.balance = numPut
+            },
+            takeCredits(numTake) {
+                card.balance = card.balance - numTake
+            },
+            setTransactionLimit(limitTran) {
+                card.transactionLimit = limitTran
+            },
+            transferCredits(countOfCredits, numberCard) {
+                if (numberCard === numbers && card.transactionLimit >= card.countOfCredits) {
+                    card.balance += countOfCredits
+                }
             }
         }
 
-    }
-    card.putCredits(150)
-    card.takeCredits(100)
-    card.setTransactionLimit(5000)
-    card.transferCredits(50,card1)
+
 }
 const card3 = userCard(3)
+card3.putCredits(150)
+card3.takeCredits(100)
+card3.setTransactionLimit(5000)
+card3.transferCredits(50,card1)
 </script>
 </body>
 </html>
