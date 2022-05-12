@@ -17,6 +17,7 @@ nexRul.innerText = 'Random Rules'
 console.log(nexRul);
 // -- змініть кожному елементу колір фону на червоний
 let chageColor = document.getElementsByTagName('body')
+console.log(chageColor);
 chageColor[0].style.backgroundColor = 'red'
 // -- змініть кожному елементу колір тексту на синій
 chageColor[0].style.color = 'blue'
