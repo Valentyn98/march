@@ -64,15 +64,19 @@
     console.log(emptyArr);
 //********************
     let arrC = []
-let a = document.querySelectorAll("*")
+    console.log(arrC);
+    let a = document.querySelectorAll("*")
     let rec = (a) =>{
   let children = a.children
         // console.log(children);
         for (const child of children) {
-            if (child.classList){
-                console.log(child.classList.value);
-                rec(child)
+            if (child.classList.value){
+                for (let i = 0; i < child.classList.length; i++) {
+                    arrC.push(child.classList.value)
+                }
+                // console.log(child.classList.value);
             }
+            rec(child)
         }
     }
     rec(document.body)
