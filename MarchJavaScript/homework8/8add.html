@@ -71,8 +71,8 @@
         // console.log(children);
         for (const child of children) {
             if (child.classList.value){
-                for (let i = 0; i < child.classList.length; i++) {
-                    arrC.push(child.classList.value)
+                for (const childElement of child.classList) {
+                    arrC.push(childElement)
                 }
                 // console.log(child.classList.value);
             }
@@ -80,6 +80,16 @@
         }
     }
     rec(document.body)
+
+    let recs = (num) =>{
+        console.log(num);
+        num++
+        if (num <= 10){
+            recs(num)
+        }
+
+    }
+    recs(0)
 </script>
 </body>
 </html>
