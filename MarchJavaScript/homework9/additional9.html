@@ -8,98 +8,152 @@
     <title>Document</title>
 </head>
 <body>
+<div id="content"></div>
+<h1>Правила бойцовского клуба</h1>
+<div id="wrap">
+    <div class="rules rule1">
+        <h2>Первое правило Бойцовского клуба.</h2>
+        <p>Никому не рассказывать о Бойцовском клубе.</p>
+    </div>
+    <div class="rules rule2">
+        <h2>Второе правило Бойцовского клуба.</h2>
+        <p>Никогда никому не рассказывать о Бойцовском клубе.</p>
+    </div>
+    <div class="rules rule3">
+        <h2>Третье правило Бойцовского клуба.</h2>
+        <p>В схватке участвуют только двое.</p>
+    </div>
+    <div class="rules rule4">
+        <h2>Четвертое правило Бойцовского клуба.</h2>
+        <p>Не более одного поединка за один раз.</p>
+    </div>
+
+    <div class="rules rule5">
+        <h2>Пятое правило Бойцовского клуба.</h2>
+        <p>Бойцы сражаются без обуви и голые по пояс.</p>
+    </div>
+    <div class="rules rule6">
+        <h2>Шестое правило Бойцовского клуба.</h2>
+        <p>Поединок продолжается столько, сколько потребуется.</p>
+    </div>
+    <div class="rules rule7">
+        <h2>Седьмое правило Бойцовского клуба.</h2>
+        <p>Если противник потерял сознание или делает вид, что потерял, или говорит «Хватит» — поединок
+            окончен.</p>
+    </div>
+    <div class="rules rule8">
+        <h2>Восьмое и последнее правило Бойцовского клуба.</h2>
+        <p>Новичок обязан принять бой.</p>
+    </div>
+</div>
 
 <script>
+
+    //  !!!!!ВЛІПИВ В ЦЕЙ ФАЙЛ в БОДІ !!!!!!!-
+    //  є сторінка rules.html. Контентом сторінки є заголовки та параграфи. Заголовки (h2) характеризують тему контенту яка вказана в параграфі.
+    //         створити скріпт, котрий зчитує всі заголовки,
+    let rulColor = document.getElementsByClassName('rules')
+    console.log(rulColor);
+    for (const rulColorElement of rulColor) {
+        if (rulColorElement.children ){
+           document.createElement(`<ul>`)
+               document.createElement('<li>')
+               document.createElement(`</ul>`)
+        }
+    }
+    //         та робить в блоці з id=content з них список(ul>li), який буде змістом того, що знаходиться на сторінці.
+    //         Скріпт повинен працювати навіть якщо кількість блоків з заголовком та параграфом зміниться.
 
 
 
 
   // - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement, розділивши всі властивості по своїм блокам , блок з адресою зробити окремим блоком, з блоками для кожної властивості
   //
-  let users = [{
-    name: 'vasya',
-    age: 31,
-    status: false,
-    address: {city: 'Lviv', country: 'Ukraine', street: 'Shevchenko', houseNumber: 1}
-  }, {
-    name: 'petya',
-    age: 30,
-    status: true,
-    address: {city: 'New York', country: 'USA', street: 'East str', houseNumber: 21}
-  }, {
-    name: 'kolya',
-    age: 29,
-    status: true,
-    address: {city: 'Budapest', country: 'Hungary', street: 'Kuraku', houseNumber: 78}
-  }, {
-    name: 'olya',
-    age: 28,
-    status: false,
-    address: {city: 'Prague', country: 'Czech', street: 'Paster', houseNumber: 56}
-  }, {
-    name: 'max',
-    age: 30,
-    status: true,
-    address: {city: 'Istanbul', country: 'Turkey', street: 'Mikar', houseNumber: 39}
-  }, {
-    name: 'anya',
-    age: 31,
-    status: false,
-    address: {city: 'Rio', country: 'Brasil', street: 'Ronaldi', houseNumber: 5}
-  }, {
-    name: 'oleg',
-    age: 28,
-    status: false,
-    address: {city: 'Montreal', country: 'Canada', street: 'Acusto', houseNumber: 90}
-  }, {
-    name: 'andrey',
-    age: 29,
-    status: true,
-    address: {city: 'Quebeck', country: 'Canada', street: 'Binaro', houseNumber: 33}
-  }, {
-    name: 'masha',
-    age: 30,
-    status: true,
-    address: {city: 'Moscow', country: 'Russia', street: 'Gogolia', houseNumber: 1}
-  }, {
-    name: 'olya',
-    age: 31,
-    status: false,
-    address: {city: 'Portland', country: 'USA', street: 'Forest str', houseNumber: 4}
-  }, {
-    name: 'max',
-    age: 31,
-    status: true,
-    address: {city: 'Cairo', country: 'Egypt', street: 'Seashore', houseNumber: 45}
-  }];
+  // let users = [{
+  //   name: 'vasya',
+  //   age: 31,
+  //   status: false,
+  //   address: {city: 'Lviv', country: 'Ukraine', street: 'Shevchenko', houseNumber: 1}
+  // }, {
+  //   name: 'petya',
+  //   age: 30,
+  //   status: true,
+  //   address: {city: 'New York', country: 'USA', street: 'East str', houseNumber: 21}
+  // }, {
+  //   name: 'kolya',
+  //   age: 29,
+  //   status: true,
+  //   address: {city: 'Budapest', country: 'Hungary', street: 'Kuraku', houseNumber: 78}
+  // }, {
+  //   name: 'olya',
+  //   age: 28,
+  //   status: false,
+  //   address: {city: 'Prague', country: 'Czech', street: 'Paster', houseNumber: 56}
+  // }, {
+  //   name: 'max',
+  //   age: 30,
+  //   status: true,
+  //   address: {city: 'Istanbul', country: 'Turkey', street: 'Mikar', houseNumber: 39}
+  // }, {
+  //   name: 'anya',
+  //   age: 31,
+  //   status: false,
+  //   address: {city: 'Rio', country: 'Brasil', street: 'Ronaldi', houseNumber: 5}
+  // }, {
+  //   name: 'oleg',
+  //   age: 28,
+  //   status: false,
+  //   address: {city: 'Montreal', country: 'Canada', street: 'Acusto', houseNumber: 90}
+  // }, {
+  //   name: 'andrey',
+  //   age: 29,
+  //   status: true,
+  //   address: {city: 'Quebeck', country: 'Canada', street: 'Binaro', houseNumber: 33}
+  // }, {
+  //   name: 'masha',
+  //   age: 30,
+  //   status: true,
+  //   address: {city: 'Moscow', country: 'Russia', street: 'Gogolia', houseNumber: 1}
+  // }, {
+  //   name: 'olya',
+  //   age: 31,
+  //   status: false,
+  //   address: {city: 'Portland', country: 'USA', street: 'Forest str', houseNumber: 4}
+  // }, {
+  //   name: 'max',
+  //   age: 31,
+  //   status: true,
+  //   address: {city: 'Cairo', country: 'Egypt', street: 'Seashore', houseNumber: 45}
+  // }];
   // - З масиву users за допомогою циклу витягнути адреси користувачів і записати (скопіювати) їх в інший порожній масив.
-  let newArray = []
-  console.log(newArray);
-  for (const user of users) {
-    newArray.push(user.address)
-  }
+  // let newArray = []
+  // console.log(newArray);
+  // for (const user of users) {
+  //   newArray.push(user.address)
+  // }
   //
   // - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement.
   // Всі данні в одному блоці.
 
 
-  for (const usersKey of users) {
-      // console.log(users[usersKey]);
-      let bl = document.createElement('div')
-      document.body.appendChild(bl)
-      for (const usersKeyKey in usersKey) {
-          let blockTwo = document.createElement('div')
-          bl.appendChild(blockTwo)
-          blockTwo.innerText = usersKey[usersKeyKey]
-          for (const address in usersKey.address) {
-              // console.log(address);
-              let add = document.createElement('div')
-              bl.appendChild(add)
-              add.innerText = usersKey.address[address]
-          }
-      }
-
-  }
+  // for (const usersKey of users) {
+  //     // console.log(users[usersKey]);
+  //     let bl = document.createElement('div')
+  //     document.body.appendChild(bl)
+  //     for (const usersKeyKey in usersKey) {
+  //         if (typeof usersKey[usersKeyKey]  !== 'object'){
+  //             let blockTwo = document.createElement('div')
+  //             bl.appendChild(blockTwo)
+  //             blockTwo.innerText = usersKey[usersKeyKey]
+  //         }
+  //     }
+  //     for (const address in usersKey.address) {
+  //         // console.log(address);
+  //         let add = document.createElement('div')
+  //         bl.appendChild(add)
+  //         add.innerText = usersKey.address[address]
+  //     }
+  // }
 
   // - За допомоги циклу проітерувати  масив users, записати кожного юзера в сівй блок за допомоги document.createElement,
   // розділивши всі властивості по своїм блокам (div>div*4)
@@ -127,16 +181,13 @@
 
 
 
-  // - є сторінка rules.html. Контентом сторінки є заголовки та параграфи. Заголовки (h2) характеризують тему контенту яка вказана в параграфі.
-  //         створити скріпт, котрий зчитує всі заголовки, та робить в блоці з id=content з них список(ul>li), який буде змістом того, що знаходиться на сторінці.
-  //         Скріпт повинен працювати навіть якщо кількість блоків з заголовком та параграфом зміниться.
-  //
-  //
-  //
+
+
   // -Є масив котрий характеризує правила. Створити скрипт який ітерує цей масив, та робить з кожне правило в окремому блоці.
   //         При цому в блоці, номер правила записати в свій блок, текст правила записати в свій окремий блок.
   //         Результатом відпрацювання скріпта повинна бути структура яка міститься в блоці wrap файла rule.html
   //
+
   // let rules = [
   //   {
   //     title: 'Первое правило Бойцовского клуба.',
@@ -169,9 +220,21 @@
   //   {
   //     title: 'Восьмое и последнее правило Бойцовского клуба.',
   //     body: 'Новичок обязан принять бой.'
-  //   },
+  //   }
   //
   // ];
+  // let arr =[]
+  // for (const rule of rules) {
+  //     for (const ruleKey in rule) {
+  //         arr.push(rule[ruleKey])
+  //         console.log(arr.length);
+  //             let father = document.createElement('div')
+  //             document.body.append(father)
+  //             let blockOfItem = document.createElement('div')
+  //             father.appendChild(blockOfItem)
+  //             blockOfItem.innerText =  `${arr.length} ` +  rule[ruleKey]
+  //     }
+  // }
 </script>
 </body>
 </html>
