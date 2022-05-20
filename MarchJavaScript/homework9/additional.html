@@ -287,7 +287,7 @@ for (const usersListElement of usersList) {
 //            всі параграфи покласти в характеристику (масив) paragraphs
 let arrC = [{headings:' '},{paragraphs: ' '}]
 console.log(arrC);
-let rec = (a,arrC) =>{
+let rec = (a) =>{
     let children = a.children
     for (const child of children) {
         if (child.tagName === 'H2'){
@@ -302,7 +302,7 @@ let rec = (a,arrC) =>{
 }
 
 }
-rec(document.body,arrC)
+rec(document.body)
 
 
 
