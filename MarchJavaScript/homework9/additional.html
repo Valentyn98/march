@@ -248,37 +248,37 @@
            ];
 //
 //        Створити під кожен елемент окремий блок. В цьому блоці, під кожну властивість, та властивості внутрішніх об'єктів створити свої окремі блок.
-  let block = document.createElement('div')
-  document.body.appendChild(block)
-for (const usersListElement of usersList) {
-    let blockTwo = document.createElement('div')
-    block.appendChild(blockTwo)
-    for (const usersListKey in usersListElement) {
-        let blockThree = document.createElement('div')
-        blockTwo.append(blockThree)
-        if ( typeof usersListElement[usersListKey] !== 'object'){
-            blockThree.innerText = `${usersListKey} :` +  `${usersListElement[usersListKey]}`
-        }else {
-            blockThree.innerText = `${usersListKey} `
-            for (const usersListKeyEl in usersListElement[usersListKey]) {
-                let divKey = document.createElement('div')
-                blockThree.append(divKey)
-                if ( typeof usersListElement[usersListKey][usersListKeyEl] !== 'object'){
-                    divKey.innerText = `${usersListKeyEl} : ` + `${usersListElement[usersListKey][usersListKeyEl]}`
-                }else{
-                    divKey.innerText = `${usersListKeyEl}`
-                    for (const usersListElementKey in usersListElement[usersListKey][usersListKeyEl]) {
-                        let lastB = document.createElement('div')
-                        blockThree.append(lastB)
-                        lastB.innerText = ` ${usersListElementKey} :${usersListElement[usersListKey][usersListKeyEl][usersListElementKey]}`
-                    }
-                }
-            }
-        }
-    }
-
-
-}
+//   let block = document.createElement('div')
+//   document.body.appendChild(block)
+// for (const usersListElement of usersList) {
+//     let blockTwo = document.createElement('div')
+//     block.appendChild(blockTwo)
+//     for (const usersListKey in usersListElement) {
+//         let blockThree = document.createElement('div')
+//         blockTwo.append(blockThree)
+//         if ( typeof usersListElement[usersListKey] !== 'object'){
+//             blockThree.innerText = `${usersListKey} :` +  `${usersListElement[usersListKey]}`
+//         }else {
+//             blockThree.innerText = `${usersListKey} `
+//             for (const usersListKeyEl in usersListElement[usersListKey]) {
+//                 let divKey = document.createElement('div')
+//                 blockThree.append(divKey)
+//                 if ( typeof usersListElement[usersListKey][usersListKeyEl] !== 'object'){
+//                     divKey.innerText = `${usersListKeyEl} : ` + `${usersListElement[usersListKey][usersListKeyEl]}`
+//                 }else{
+//                     divKey.innerText = `${usersListKeyEl}`
+//                     for (const usersListElementKey in usersListElement[usersListKey][usersListKeyEl]) {
+//                         let lastB = document.createElement('div')
+//                         blockThree.append(lastB)
+//                         lastB.innerText = ` ${usersListElementKey} :${usersListElement[usersListKey][usersListKeyEl][usersListElementKey]}`
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//
+//
+// }
 //
 //
 //        --------
@@ -300,12 +300,34 @@ let rec = (a) =>{
 }
 rec(document.body)
 
-
 //        ------
 //
 //            зробити div contenteditable ввести будь яке ціле слово.
 //            та при натисканні табуляції перетворити його на подвійний тег
 //        asd ->tab-> <asd></asd>
+
+
+// let contentEditable = document.createElement('div')
+// document.body.append(contentEditable)
+// contentEditable.innerText = 'SLOVO'
+//
+// contentEditable.onkeydown = (ev) =>{
+//     contentEditable.remove()
+//     let contentEditableTWO = document.createElement('asd')
+//     document.body.append(contentEditableTWO)
+//     contentEditableTWO.innerText = 'New'
+// }
+
+const divElement = document.createElement('div');
+document.body.appendChild(divElement);
+divElement.setAttribute('contenteditable','true');
+divElement.onkeydown = (e) =>{
+    let name = e.key;
+    if (name === 'Tab'){
+        divElement.innerText = `${divElement.innerText}` + `${divElement.innerText}`;
+    }
+}
+
     </script>
 </body>
 </html>
