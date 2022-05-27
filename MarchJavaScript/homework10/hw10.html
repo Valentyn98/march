@@ -8,31 +8,124 @@
     <title>Document</title>
 </head>
 <body>
+<!-- - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується-->
+<!--та виводиться на консоль інформація з цих 2х форм.-->
+<!--Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)-->
+<!--Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.-->
+<!--<form name="fOne">-->
+<!--    <label>-->
+<!--        <input type="text" name="oneFOne">-->
+<!--    </label>-->
+<!--    <label>-->
+<!--        <input type="text" name="oneFTwo">-->
+<!--    </label>-->
+<!--</form>-->
+<!--<form name="fTwo">-->
+<!--    <label>-->
+<!--        <input type="text" name="twoFOne">-->
+<!--    </label>-->
+<!--    <label>-->
+<!--        <input type="text" name="twoFTwo">-->
+<!--    </label>-->
+<!--</form>-->
+
+<!--<button type="button" id="b">click</button>-->
+
+<!--//**********************************-->
+
+
+
+
 
 <script>
+
+
+    // <!-- - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується-->
+    // <!--та виводиться на консоль інформація з цих 2х форм.-->
+    // <!--Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)-->
+    // <!--Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.-->
+
+    // let b = document.getElementById('b')
+    // b.addEventListener('click',function (){
+    //     console.log(document.forms.fOne.oneFOne.value);
+    //     console.log(document.forms.fOne.oneFTwo.value);
+    //     console.log(document.forms.fTwo.twoFOne.value);
+    //     console.log(document.forms.fTwo.twoFTwo.value);
+    // })
+    //***************************************************
+
+    //     - створити інпут який приймає вік людини та кнопку яка підтверджує дію.
+    //     При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік
+    //     чи меньше він ніж 18, та повідомити про це користувача
+    // let input = document.createElement('input')
+    // input.type = 'number'
+    // document.body.append(input)
+    //  let but = document.createElement('button')
+    // but.innerText = 'Button'
+    // document.body.append(but)
+    //  but.addEventListener('click' ,function (){
+    //      if (input.value >= 18){
+    //          console.log('>18')
+    //      }else  {
+    //          console.log('<18')
+    //      }
+    //      input.value = ''
+    //  })
+    //********************************************
+
     // - Создать произвольный елемент с id = text.
     // Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
+    // let div = document.createElement('div')
+    // div.setAttribute('id','text')
+    // document.body.appendChild(div)
+    // div.innerText = 'Buba'
+    // div.onclick = function (){
+    //     div.remove()
+    // }
+    //********************************************
 
-    let div = document.createElement('div')
-    document.body.appendChild(div)
-    div.innerText = 'Buba'
-    div.onclick = function (){
-        div.remove()
-    }
 
 
+    //
 
-    //     - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
-    //
-    //
-    // - створити 2 форми  по 2 інпути в кожній. ствоирити кнопку при кліку на яку считується та виводиться на консоль інформація з цих 2х форм.
-    //     Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
-    // Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.
-    //
-    //
-    // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
-    //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+    // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк,
+    // третій вмиіст ячеєк.
+    //     При натисканні кнопки, вся ця інформація зчитується і формується табличка,
+    //     з відповідним вмістом.
     // (Додатковачастина для завдання)
+
+
+    const inpOne = document.createElement('input')
+    const inpTwo = document.createElement('input')
+    const inpThree = document.createElement('input')
+
+    let butt = document.createElement('button')
+    butt.innerText = 'but'
+
+    document.body.append(inpOne,inpTwo,inpThree,butt)
+    butt.addEventListener('click',function (){
+        let tr = inpOne.value
+        let td = inpTwo.value
+        let val = inpThree.value
+
+        function creteTable (tr,td,text){
+            const tab = document.createElement('table')
+            document.body.append(tab)
+
+            for (let i = 0; i < tr; i++) {
+                let ter = document.createElement('tr')
+                tab.append(ter)
+
+                for (let i = 0; i < td; i++) {
+                    let ted = document.createElement('td')
+                    ter.append(ted)
+                    ted.innerText = `${text}`
+                }
+            }
+
+        }
+        creteTable(tr,td,val)
+    })
 </script>
 </body>
 </html>
