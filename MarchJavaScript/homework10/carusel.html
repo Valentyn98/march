@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            width: 800px;
+            height: 400px;
+            position: relative;
+        }
+        .slides{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .slides-item{
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        #left-button, #right-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: black;
+            font-size: 30px;
+        }
+        #left-button{
+            left: 0;
+        }
+        #right-button{
+            right: 0;
+        }
+        img{
+            width: 800px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="slides">
+            <img class="slides-item" src="./img/picasabackground-007.bmp" alt="">
+            <img class="slides-item" src="./img/picasabackground-006.bmp" alt="">
+            <img class="slides-item" src="./img/picasabackground-007.bmp" alt="">
+        </div>
+        <div class="button-block">
+            <div id="left-button"><</div>
+            <div id="right-button">></div>
+        </div>
+    </div>
+<script>
+let slides = document.getElementsByClassName('slides-item'),
+    prevBtn = document.getElementById('left-button'),
+    nextBtn = document.getElementById('right-button'),
+    slideIndex = 1;
+
+showSlides(slideIndex)
+function showSlides (n){
+    if (n < 1){
+        slideIndex = slides.length;
+    }else if (n > slides.length){
+        slideIndex = 1
+    }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none'
+    }
+    slides[slideIndex - 1].style.display = 'block'
+
+}
+function plusSlides (n){
+    showSlides(slideIndex += n)
+}
+prevBtn.onclick = function (){
+    plusSlides(-1)
+}
+nextBtn.onclick = function (){
+    plusSlides(1)
+}
+</script>
+</body>
+</html>
