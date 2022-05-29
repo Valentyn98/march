@@ -324,10 +324,9 @@ divElement.setAttribute('contenteditable','true');
 divElement.onkeydown = (e) =>{
     let name = e.key;
     if (name === 'Tab'){
-        divElement.innerText = `${divElement.innerText}` + `${divElement.innerText}`;
+        divElement.innerText = `<${divElement.innerText}>` + `<${divElement.innerText}/>`;
     }
 }
-
 
     </script>
 </body>
