@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px silver solid;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+<div>1
+    <div>1.1
+        <div>1.1.1</div>
+        <div>1.1.1</div>
+    </div>
+    <div>1.2
+        <div>1.2.1</div>
+        <div>1.2.2</div>
+    </div>
+</div>
+
+<div>2</div>
+
+<script>
+    //    *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
+    //    при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу
+    //    (лежащему на одном уровне)
+    //    НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
+    //        Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
+
+
+        let elem = document.body
+        console.log(elem);
+        let buttonOne = document.createElement('button')
+        buttonOne.innerText = 'Вперед'
+        let buttonTwo = document.createElement('button')
+        buttonTwo.innerText = 'Назад'
+
+
+    // console.log(arrC);
+
+    buttonOne.addEventListener('click',function (){
+        let rec = (a) =>{
+            let children = a.children
+            // console.log(children);
+            for (const child of children) {
+
+                rec(child)
+            }
+        }
+        rec(document.body)
+    })
+
+
+
+        elem.append(buttonOne,buttonTwo)
+
+
+</script>
+</body>
+</html>
