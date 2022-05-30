@@ -17,7 +17,7 @@
 <div>1
     <div>1.1
         <div>1.1.1</div>
-        <div>1.1.1</div>
+        <div>1.1.2</div>
     </div>
     <div>1.2
         <div>1.2.1</div>
@@ -48,15 +48,32 @@
     buttonOne.addEventListener('click',function (){
         let rec = (a) =>{
             let children = a.children
-            // console.log(children);
-            for (const child of children) {
+            for (let i = 0; i < children.length; i++) {
+                if (children[i].tagName === 'DIV'){
+                    console.log(children[i]);
 
-                rec(child)
+                }
+                rec(children[i])
             }
         }
         rec(document.body)
     })
 
+    buttonTwo.addEventListener('click',function (){
+        let rec = (a) =>{
+            let children = a.children
+            for (let i = children.length-1; i >= 0; i--)
+            {
+                if (children[i].tagName === 'DIV'){
+                    console.log(children[i]);
+                    rec(children[i])
+                }
+            }
+
+
+        }
+        rec(document.body)
+    })
 
 
         elem.append(buttonOne,buttonTwo)
