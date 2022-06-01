@@ -179,31 +179,21 @@
 //     при кліку на яку з лс видаляється конкретний обраний  товар
 
 
-let buttTo = document.getElementById('buttTo')
 
+const {nameOfProd,countOfProd,priceOfProd,imageOfProd} = document.forms.form
+let buttTo = document.getElementById('buttTo')
 let key = 'Products'
 
-let nameOfProd = document.getElementById('nameOfProd')
-let countOfProd = document.getElementById('countOfProd')
-let priceOfProd = document.getElementById('priceOfProd')
-let imageOfProd = document.getElementById('imageOfProd')
+const save = (nameOfProd,countOfProd,priceOfProd,imageOfProd) =>{
+    let time = new Date().getTime()
+    let i = JSON.parse(localStorage.getItem(key)) || []
+    i.push({id:time,nameOfProd,countOfProd,priceOfProd,imageOfProd})
+    localStorage.setItem(key, JSON.stringify(i))
 
-let setProducts = (nameOfProd,countOfProd,priceOfProd,imageOfProd) =>{
-    let objProd = {
-        nameOfProd : nameOfProd.value,
-        countOfProd : countOfProd.value,
-        priceOfProd : priceOfProd.value,
-        imageOfProd : imageOfProd.value
-    }
-
-    let arrayWithProducts = []
-    arrayWithProducts.push(objProd)
-
-    localStorage.setItem(key,JSON.stringify(arrayWithProducts))
 }
-
-
-buttTo.onclick = (e) =>{
-    setProducts(nameOfProd,countOfProd,priceOfProd,imageOfProd)
+buttTo.onclick = (e) => {
     e.preventDefault()
+    save(nameOfProd.value, countOfProd.value, priceOfProd.value,imageOfProd.value )
 }
+
+

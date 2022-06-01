@@ -21,6 +21,8 @@
         let block1 = document.createElement('div')
         block.append(block1)
 
+        let id = document.createElement('div')
+        id.innerText = `${informElement.id}`
         let NameOfProd = document.createElement('div')
         NameOfProd.innerText = ` NameOfProd: ${informElement.nameOfProd}`
         let CountOfProd = document.createElement('div')
@@ -28,17 +30,23 @@
         let PriceOfProd = document.createElement('div')
         PriceOfProd.innerText = `PriceOfProd: ${informElement.priceOfProd}`
         let imageOfProd = document.createElement('div')
-        imageOfProd.innerText = `imageOfProd: ${informElement.imageOfProd}`
+        imageOfProd.src = `imageOfProd: ${informElement.imageOfProd}`
 
 
-    let butForDelete = document.createElement('button')
+        let butForDelete = document.createElement('button')
         butForDelete.innerText = "DELETE"
 
-
         butForDelete.onclick = () =>{
-
+            delI(informElement.id)
         }
-        block1.append(NameOfProd,CountOfProd,PriceOfProd,imageOfProd,butForDelete)
+        const delI = (id)=>{
+            inform = inform.filter(value => value.id !== id)
+            localStorage.setItem(key,JSON.stringify(inform))
+            block1.innerText = ''
+        }
+
+
+        block1.append(NameOfProd,CountOfProd,PriceOfProd,imageOfProd,butForDelete,id)
     }
 </script>
 </body>
