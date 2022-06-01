@@ -20,8 +20,19 @@
     for (const informElement of inform) {
         let block1 = document.createElement('div')
         block.append(block1)
-        block1.innerText = ` NameOfProd: ${informElement.nameOfProd}` + `CountOfProd: ${informElement.countOfProd}` + `PriceOfProd: ${informElement.priceOfProd}`
-            + `imageOfProd: ${informElement.imageOfProd}`
+
+        let NameOfProd = document.createElement('div')
+        NameOfProd.innerText = ` NameOfProd: ${informElement.nameOfProd}`
+        let CountOfProd = document.createElement('div')
+        CountOfProd.innerText =  `CountOfProd: ${informElement.countOfProd}`
+        let PriceOfProd = document.createElement('div')
+        PriceOfProd.innerText = `PriceOfProd: ${informElement.priceOfProd}`
+        let imageOfProd = document.createElement('div')
+        imageOfProd.innerText = `imageOfProd: ${informElement.imageOfProd}`
+        block1.append(NameOfProd,CountOfProd,PriceOfProd,imageOfProd)
+
+
+
     }
 </script>
 </body>
