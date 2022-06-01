@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>LIST OF PRODUCTS</h1>
+
+<script>
+    let key = 'Products'
+
+    let block = document.createElement('div')
+    document.body.append(block)
+    let inform = JSON.parse(localStorage.getItem(key))
+
+    for (const informElement of inform) {
+        let block1 = document.createElement('div')
+        block.append(block1)
+        block1.innerText = ` NameOfProd: ${informElement.nameOfProd}` + `CountOfProd: ${informElement.countOfProd}` + `PriceOfProd: ${informElement.priceOfProd}`
+            + `imageOfProd: ${informElement.imageOfProd}`
+    }
+</script>
+</body>
+</html>
