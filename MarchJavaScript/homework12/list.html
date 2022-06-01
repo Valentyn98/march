@@ -29,10 +29,16 @@
         PriceOfProd.innerText = `PriceOfProd: ${informElement.priceOfProd}`
         let imageOfProd = document.createElement('div')
         imageOfProd.innerText = `imageOfProd: ${informElement.imageOfProd}`
-        block1.append(NameOfProd,CountOfProd,PriceOfProd,imageOfProd)
 
 
+    let butForDelete = document.createElement('button')
+        butForDelete.innerText = "DELETE"
 
+
+        butForDelete.onclick = () =>{
+
+        }
+        block1.append(NameOfProd,CountOfProd,PriceOfProd,imageOfProd,butForDelete)
     }
 </script>
 </body>
