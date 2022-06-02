@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+let wrapOfUser = document.createElement('div')
+document.body.append(wrapOfUser)
+wrapOfUser.classList.add('wrapOfUser')
+let userInfo = JSON.parse(localStorage.getItem('key'))
+console.log(userInfo);
+for (const userInfoElement of userInfo) {
+    let fatherUserDiv = document.createElement('div')
+    wrapOfUser.appendChild(fatherUserDiv)
+    for (const userInfoElementKey in userInfoElement) {
+        let blockOfElUser = document.createElement('div')
+        if (typeof userInfoElement[userInfoElementKey] !== 'object'){
+            blockOfElUser.innerText = `${userInfoElementKey[0].toUpperCase() + userInfoElementKey.substring(1)}: `
+                + `${userInfoElement[userInfoElementKey]}`
+        }else {
+            blockOfElUser.innerText = `${userInfoElementKey[0].toUpperCase() + userInfoElementKey.substring(1)}: `
+            for (const uInElementKey in userInfoElement[userInfoElementKey]) {
+                let compDiv = document.createElement('div')
+                blockOfElUser.append(compDiv)
+                if (typeof userInfoElement[userInfoElementKey][uInElementKey] !== 'object'){
+                    compDiv.innerText = `${uInElementKey[0].toUpperCase() + uInElementKey.substring(1)} :`
+                        + `${userInfoElement[userInfoElementKey][uInElementKey]}`
+                }else{
+                    compDiv.innerText = `${uInElementKey[0].toUpperCase() + uInElementKey.substring(1)} :`
+                    for (const uInElKey in userInfoElement[userInfoElementKey][uInElementKey]) {
+                        let geoBlock = document.createElement('div')
+                        compDiv.append(geoBlock)
+                        if (userInfoElement[userInfoElementKey][uInElementKey][uInElKey] !== 'object'){
+                            geoBlock.innerText = `${uInElKey[0].toUpperCase() + uInElKey.substring(1)} :`
+                                + `${userInfoElement[userInfoElementKey][uInElementKey][uInElKey]}`
+                        }
+                    }
+                }
+            }
+        }
+
+        fatherUserDiv.append(blockOfElUser)
+    }
+
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+//     В index.html
+//     1 получить массив объектов user с endpoint`а https://jsonplaceholder.typicode.com/users
+// 2 Вывести id,name всех user в index.html. Отдельный блок для каждого user.
+// 3 Добавить каждому блоку кнопку/ссылку ,
+// при клике на которую происходит переход на страницу user-details.html,
+// которая имеет детальную информацию про объект на который кликнули
+
+let userFIO = document.createElement('div')
+document.body.append(userFIO)
+fetch('https://jsonplaceholder.typicode.com/users')
+.then(value => value.json())
+.then(users => {
+    for (const user of users) {
+        let users =  document.createElement('div')
+        userFIO.appendChild(users)
+        let userId = document.createElement('div')
+        userId.innerText = `${user.id}`
+        let userNames = document.createElement('div')
+        userNames.innerText = `${user.name}`
+        let button = document.createElement('button')
+        button.innerText = 'UserDetails'
+        users.append(userId,userNames,button)
+        button.onclick = () =>{
+            document.location.href = 'user-details.html'
+            let i = JSON.parse(localStorage.getItem('key')) || []
+            i.push(user)
+            localStorage.setItem('key',JSON.stringify(i))
+            button.disabled = true
+        }
+    }
+})
+</script>
+</body>
+</html>
