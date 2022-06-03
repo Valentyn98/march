@@ -21,23 +21,23 @@ for (const userInfoElement of userInfo) {
     for (const userInfoElementKey in userInfoElement) {
         let blockOfElUser = document.createElement('div')
         if (typeof userInfoElement[userInfoElementKey] !== 'object'){
-            blockOfElUser.innerText = `${userInfoElementKey[0].toUpperCase() + userInfoElementKey.substring(1)}: `
+            blockOfElUser.innerText = `${userInfoElementKey[0].toUpperCase() + userInfoElementKey.substring(1)} : `
                 + `${userInfoElement[userInfoElementKey]}`
         }else {
-            blockOfElUser.innerText = `${userInfoElementKey[0].toUpperCase() + userInfoElementKey.substring(1)}: `
+            blockOfElUser.innerText = `${userInfoElementKey[0].toUpperCase() + userInfoElementKey.substring(1)} : `
             for (const uInElementKey in userInfoElement[userInfoElementKey]) {
                 let compDiv = document.createElement('div')
                 blockOfElUser.append(compDiv)
                 if (typeof userInfoElement[userInfoElementKey][uInElementKey] !== 'object'){
-                    compDiv.innerText = `${uInElementKey[0].toUpperCase() + uInElementKey.substring(1)} :`
+                    compDiv.innerText = `${uInElementKey[0].toUpperCase() + uInElementKey.substring(1)} : `
                         + `${userInfoElement[userInfoElementKey][uInElementKey]}`
                 }else{
-                    compDiv.innerText = `${uInElementKey[0].toUpperCase() + uInElementKey.substring(1)} :`
+                    compDiv.innerText = `${uInElementKey[0].toUpperCase() + uInElementKey.substring(1)} : `
                     for (const uInElKey in userInfoElement[userInfoElementKey][uInElementKey]) {
                         let geoBlock = document.createElement('div')
                         compDiv.append(geoBlock)
                         if (userInfoElement[userInfoElementKey][uInElementKey][uInElKey] !== 'object'){
-                            geoBlock.innerText = `${uInElKey[0].toUpperCase() + uInElKey.substring(1)} :`
+                            geoBlock.innerText = `${uInElKey[0].toUpperCase() + uInElKey.substring(1)} : `
                                 + `${userInfoElement[userInfoElementKey][uInElementKey][uInElKey]}`
                         }
                     }
@@ -47,7 +47,40 @@ for (const userInfoElement of userInfo) {
 
         fatherUserDiv.append(blockOfElUser)
     }
+    let buttonPostTitle = document.createElement('button')
+    buttonPostTitle.innerText = 'ShowPostTitle'
+    buttonPostTitle.onclick = () =>{
+        let divPost = document.createElement('div')
+        fatherUserDiv.append(divPost)
+        // fetch('https://jsonplaceholder.typicode.com/posts')
+            fetch(`https://jsonplaceholder.typicode.com/users/${userInfoElement.id}/posts`)
+        .then(value => value.json())
+        .then(post => {
+            for (const postElement of post) {
+                // if (postElement.userId === userInfoElement.id) {
+                    let div = document.createElement('div')
+                    divPost.appendChild(div)
+                    console.log(postElement.title);
+                    let title = document.createElement('div')
+                    title.innerText = `Title : ` + postElement.title
+                    let buttonDetOfPost = document.createElement('button')
+                    buttonDetOfPost.innerText = 'DetailsOfPost'
+                    div.append(title,buttonDetOfPost)
+                    buttonDetOfPost.onclick = () =>{
+                        let i = JSON.parse(localStorage.getItem('keyKey')) || []
+                        i.push(postElement)
+                        localStorage.setItem('keyKey',JSON.stringify(i))
+                        document.location.href = 'post-details.html'
+                        buttonDetOfPost.disabled = true
+                }
 
+
+                // }
+            }
+        })
+        buttonPostTitle.disabled = true
+    }
+    fatherUserDiv.append(buttonPostTitle)
 }
 </script>
 </body>

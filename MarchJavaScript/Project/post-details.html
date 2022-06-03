@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    let wrapOfPostDet = document.createElement('div')
+    document.body.append(wrapOfPostDet)
+    wrapOfPostDet.classList.add('wrapOfPostDet')
+    let postInfo = JSON.parse(localStorage.getItem('keyKey'))
+    console.log(postInfo);
+    for (const postInfoElement of postInfo) {
+        let fatherPostDet  = document.createElement('div')
+        wrapOfPostDet.append(fatherPostDet)
+        for (const postInfoElementKey in postInfoElement) {
+            let blockOfElPost = document.createElement('div')
+            if (typeof postInfoElement[postInfoElementKey] !== 'object' ){
+                blockOfElPost.innerText = `${postInfoElementKey} : ` + `${postInfoElement[postInfoElementKey]}`
+                fatherPostDet.append(blockOfElPost)
+            }else{
+                blockOfElPost.innerText = `${postInfoElementKey}`
+            }
+
+        }
+        let buttonPostComm = document.createElement('button')
+        buttonPostComm.innerText = 'PostOFComm'
+        fatherPostDet.append(buttonPostComm)
+        buttonPostComm.onclick = () =>{
+            let divComments = document.createElement('div')
+            fatherPostDet.append(divComments)
+            fetch(`https://jsonplaceholder.typicode.com/posts/${postInfoElement.userId}/comments`)
+                .then(value => value.json())
+            .then(comm => {
+                for (const commElement of comm) {
+                    console.log(commElement);
+                    let postID = document.createElement('div')
+                    postID.innerText = `PostID :` + `${commElement.postId}`
+                    let iD = document.createElement('div')
+                    iD.innerText = `ID :` + `${commElement.id}`
+                    let name = document.createElement('div')
+                    name.innerText = `Name :` + `${commElement.name}`
+                    let email = document.createElement('div')
+                    email.innerText = `Email :` + `${commElement.email}`
+                    let body = document.createElement('div')
+                    body.innerText = `${commElement.body}`
+                    divComments.append(postID,iD,name,email,body)
+                }
+            })
+        }
+    }
+</script>
+</body>
+</html>
