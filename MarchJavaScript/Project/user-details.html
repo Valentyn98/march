@@ -6,20 +6,98 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <style>
+
+        *{
+            margin: 0 auto;
+            padding: 0;
+            font-family: 'Kanit', sans-serif;
+        }
+        body{
+            background-color: black;
+        }
+        .fatherUserDiv{
+            background-color: white;
+            margin: 20px;
+            display: flex;
+            /*justify-content: center;*/
+            flex-direction: column;
+            text-align: center;
+        }
+        .buttonPostTitle{
+            background-color: black;
+            color: white;
+            width: 90%;
+            height: 40px;
+            border: 2px solid black;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .buttonPostTitle:hover{
+            background-color: gainsboro;
+            color: black;
+            border: 0px;
+        }
+        .blockOfElUser{
+            text-align: start;
+            width: 50%;
+            background-color: gainsboro;
+            font-size: 18px;
+            font-weight: bold;
+
+        }
+        .divPost{
+            display: flex;
+            flex-wrap: wrap;
+            width: 50%;
+            justify-content: center;
+        }
+        .divPEl{
+            background-color: gainsboro;
+            width: 18%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            height: 150px;
+            border: 3px black solid;
+            margin: 4px;
+            font-size: 11px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .buttonDetOfPost{
+            background-color: black;
+            color: white;
+            /*width: 90px;*/
+            height: 40px;
+        }
+        .buttonDetOfPost:hover{
+            background-color: gainsboro;
+            color: black;
+        }
+    </style>
 </head>
+
 <body>
 
 <script>
 let wrapOfUser = document.createElement('div')
 document.body.append(wrapOfUser)
 wrapOfUser.classList.add('wrapOfUser')
+
 let userInfo = JSON.parse(localStorage.getItem('key'))
-console.log(userInfo);
+
 for (const userInfoElement of userInfo) {
     let fatherUserDiv = document.createElement('div')
+    fatherUserDiv.classList.add('fatherUserDiv')
     wrapOfUser.appendChild(fatherUserDiv)
     for (const userInfoElementKey in userInfoElement) {
         let blockOfElUser = document.createElement('div')
+        blockOfElUser.classList.add('blockOfElUser')
+
         if (typeof userInfoElement[userInfoElementKey] !== 'object'){
             blockOfElUser.innerText = `${userInfoElementKey[0].toUpperCase() + userInfoElementKey.substring(1)} : `
                 + `${userInfoElement[userInfoElementKey]}`
@@ -28,6 +106,7 @@ for (const userInfoElement of userInfo) {
             for (const uInElementKey in userInfoElement[userInfoElementKey]) {
                 let compDiv = document.createElement('div')
                 blockOfElUser.append(compDiv)
+
                 if (typeof userInfoElement[userInfoElementKey][uInElementKey] !== 'object'){
                     compDiv.innerText = `${uInElementKey[0].toUpperCase() + uInElementKey.substring(1)} : `
                         + `${userInfoElement[userInfoElementKey][uInElementKey]}`
@@ -36,6 +115,7 @@ for (const userInfoElement of userInfo) {
                     for (const uInElKey in userInfoElement[userInfoElementKey][uInElementKey]) {
                         let geoBlock = document.createElement('div')
                         compDiv.append(geoBlock)
+
                         if (userInfoElement[userInfoElementKey][uInElementKey][uInElKey] !== 'object'){
                             geoBlock.innerText = `${uInElKey[0].toUpperCase() + uInElKey.substring(1)} : `
                                 + `${userInfoElement[userInfoElementKey][uInElementKey][uInElKey]}`
@@ -44,28 +124,34 @@ for (const userInfoElement of userInfo) {
                 }
             }
         }
-
         fatherUserDiv.append(blockOfElUser)
     }
     let buttonPostTitle = document.createElement('button')
     buttonPostTitle.innerText = 'ShowPostTitle'
+    buttonPostTitle.classList.add('buttonPostTitle')
+
     buttonPostTitle.onclick = () =>{
         let divPost = document.createElement('div')
         fatherUserDiv.append(divPost)
+        divPost.classList.add('divPost')
+
         // fetch('https://jsonplaceholder.typicode.com/posts')
             fetch(`https://jsonplaceholder.typicode.com/users/${userInfoElement.id}/posts`)
         .then(value => value.json())
         .then(post => {
             for (const postElement of post) {
                 // if (postElement.userId === userInfoElement.id) {
-                    let div = document.createElement('div')
-                    divPost.appendChild(div)
-                    console.log(postElement.title);
+                    let divPEl = document.createElement('div')
+                    divPost.appendChild(divPEl)
+                    divPEl.classList.add('divPEl')
+
                     let title = document.createElement('div')
                     title.innerText = `Title : ` + postElement.title
                     let buttonDetOfPost = document.createElement('button')
                     buttonDetOfPost.innerText = 'DetailsOfPost'
-                    div.append(title,buttonDetOfPost)
+                    buttonDetOfPost.classList.add('buttonDetOfPost')
+
+                    divPEl.append(title,buttonDetOfPost)
                     buttonDetOfPost.onclick = () =>{
                         let i = JSON.parse(localStorage.getItem('keyKey')) || []
                         i.push(postElement)
@@ -73,8 +159,6 @@ for (const userInfoElement of userInfo) {
                         document.location.href = 'post-details.html'
                         buttonDetOfPost.disabled = true
                 }
-
-
                 // }
             }
         })

@@ -6,22 +6,88 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
 </head>
+<style>
+    *{
+        margin: 0 auto;
+        padding: 0;
+        font-family: 'Kanit', sans-serif;
+    }
+    body{
+        background-color: gray;
+    }
+    .fatherPostDet{
+        background-color: white;
+        margin: 20px;
+        display: flex;
+        /*justify-content: center;*/
+        flex-direction: column;
+        text-align: center;
+    }
+    .buttonPostComm{
+        background-color: black;
+        color: white;
+        width: 90%;
+        height: 40px;
+        border: 2px solid black;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .buttonPostComm:hover{
+        background-color: gainsboro;
+        color: black;
+        border: 0px;
+    }
+    .divComments{
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+        justify-content: center;
+    }
+    .divPEl{
+        background-color: gainsboro;
+        width: 23.5%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 240px;
+        border: 3px black solid;
+        margin: 4px;
+        font-size: 10px;
+        padding: 8px;
+        box-sizing: border-box;
+
+    }
+    .blockOfElPost{
+        text-align: start;
+        width: 50%;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
 <body>
 
 <script>
     let wrapOfPostDet = document.createElement('div')
     document.body.append(wrapOfPostDet)
     wrapOfPostDet.classList.add('wrapOfPostDet')
-    let postInfo = JSON.parse(localStorage.getItem('keyKey'))
-    console.log(postInfo);
+
+    let postInfo = JSON.parse(localStorage.getItem('keyKey'))//дістали зі сховища
+
     for (const postInfoElement of postInfo) {
         let fatherPostDet  = document.createElement('div')
+        fatherPostDet.classList.add('fatherPostDet')
         wrapOfPostDet.append(fatherPostDet)
+
         for (const postInfoElementKey in postInfoElement) {
             let blockOfElPost = document.createElement('div')
+            blockOfElPost.classList.add('blockOfElPost')
             if (typeof postInfoElement[postInfoElementKey] !== 'object' ){
-                blockOfElPost.innerText = `${postInfoElementKey} : ` + `${postInfoElement[postInfoElementKey]}`
+                blockOfElPost.innerText = `${postInfoElementKey[0].toUpperCase() + postInfoElementKey.substring(1)} : `
+                    + `${postInfoElement[postInfoElementKey]}`
                 fatherPostDet.append(blockOfElPost)
             }else{
                 blockOfElPost.innerText = `${postInfoElementKey}`
@@ -30,15 +96,23 @@
         }
         let buttonPostComm = document.createElement('button')
         buttonPostComm.innerText = 'PostOFComm'
+        buttonPostComm.classList.add('buttonPostComm')
         fatherPostDet.append(buttonPostComm)
+
         buttonPostComm.onclick = () =>{
             let divComments = document.createElement('div')
+            divComments.classList.add('divComments')
             fatherPostDet.append(divComments)
+
             fetch(`https://jsonplaceholder.typicode.com/posts/${postInfoElement.userId}/comments`)
-                .then(value => value.json())
+            .then(value => value.json())
             .then(comm => {
                 for (const commElement of comm) {
                     console.log(commElement);
+                    let divPEl = document.createElement('div')
+                    divComments.append(divPEl)
+                    divPEl.classList.add('divPEl')
+
                     let postID = document.createElement('div')
                     postID.innerText = `PostID :` + `${commElement.postId}`
                     let iD = document.createElement('div')
@@ -49,9 +123,11 @@
                     email.innerText = `Email :` + `${commElement.email}`
                     let body = document.createElement('div')
                     body.innerText = `${commElement.body}`
-                    divComments.append(postID,iD,name,email,body)
+
+                    divPEl.append(postID,iD,name,email,body)
                 }
             })
+            buttonPostComm.disabled = true
         }
     }
 </script>
