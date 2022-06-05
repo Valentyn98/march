@@ -92,7 +92,6 @@
             }else{
                 blockOfElPost.innerText = `${postInfoElementKey}`
             }
-
         }
         let buttonPostComm = document.createElement('button')
         buttonPostComm.innerText = 'PostOFComm'
@@ -108,7 +107,7 @@
             .then(value => value.json())
             .then(comm => {
                 for (const commElement of comm) {
-                    console.log(commElement);
+
                     let divPEl = document.createElement('div')
                     divComments.append(divPEl)
                     divPEl.classList.add('divPEl')

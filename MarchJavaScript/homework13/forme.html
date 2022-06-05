@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="divik">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dolore excepturi fuga, ipsam iste, laboriosam laborum perspiciatis quaerat quidem quis repellendus tenetur unde voluptate. Commodi dignissimos magnam reprehenderit sint voluptatum.
+</div>
+
+<script>
+ // let energy = 1000
+ //    function  wakeUp (energy){
+ //        return new Promise((resolve, reject) => {
+ //            setTimeout(()=>{
+ //                energy -= 500;
+ //                if (energy <=0){
+ //                    reject('Я не прокинувся')
+ //                    return;
+ //                }
+ //                // console.log('Прокинувся');
+ //                resolve(energy)
+ //            },1666)
+ //        })
+ //    }
+ //
+ //
+ //    function eat(energy){
+ //        return new Promise(resolve => {
+ //            setTimeout(()=>{
+ //                energy += 200;
+ //                // console.log(`Поїв`);
+ //                resolve(energy)
+ //            },900)
+ //        })
+ //    }
+ //
+ //    function goToWork (energy){
+ //        return new Promise((resolve, reject) => {
+ //            setTimeout(()=>{
+ //                energy -= 500;
+ //                if (energy <= 0){
+ //                    reject('Не дійшов')
+ //                    return
+ //                }
+ //                // console.log('Дійшов')
+ //                resolve(energy)
+ //            },1347 )
+ //        })
+ //    }
+ //
+ //
+ //
+ //
+ //
+ //    function message(msg, data){
+ //        console.log(msg);
+ //        console.log(`лишилось б ${data}`)
+ //    }
+ //
+ //    async function start(energy){
+ //     try {
+ //          let data = await wakeUp(energy)
+ //         message('wake up',data)
+ //
+ //         data = await eat(data)
+ //         message('eat', data)
+ //
+ //         data = await goToWork(data)
+ //         message('went',data)
+ //
+ //     }
+ //     catch (err){
+ //         console.log(err);
+ //     }
+ //    }
+ //
+ // start(energy)
+
+ //
+ // let energy = 1000
+ // function  wakeUp (energy){
+ //     return new Promise((resolve, reject) => {
+ //         setTimeout(()=>{
+ //             energy -= 500;
+ //             if (energy <=0){
+ //                 reject('Я не прокинувся')
+ //                 return;
+ //             }
+ //             console.log('Прокинувся');
+ //             resolve(energy)
+ //         },1666)
+ //     })
+ // }
+ //
+ //
+ // function eat(energy){
+ //     return new Promise(resolve => {
+ //         setTimeout(()=>{
+ //             energy += 200;
+ //             console.log(`Поїв`);
+ //             resolve(energy)
+ //         },900)
+ //     })
+ // }
+ //
+ // function goToWork (energy){
+ //     return new Promise((resolve, reject) => {
+ //         setTimeout(()=>{
+ //             energy -= 500;
+ //             if (energy <= 0){
+ //                 reject('Не дійшов')
+ //                 return
+ //             }
+ //             console.log('Дійшов')
+ //             resolve(energy)
+ //         },1347 )
+ //     })
+ // }
+
+    // wakeUp(1000)
+    // .then(value => {
+    //     console.log('energy' + `${value}`)
+    //     console.log(`_________________`)
+    //     return eat(value)
+    // })
+    // .then(value => {
+    //     console.log(`Energy` + value)
+    //     return goToWork(value)
+    // })
+    // .then(value => {
+    //     console.log(`energy ` + value)
+    // })
+    // .catch(err =>{
+    //     console.log(err)
+    // })
+
+
+
+
+
+
+
+ // let energy = 333
+ // function wakeUp(energy, cb){
+ //     setTimeout(()=>{
+ //         energy -=500;
+ //         if (energy <= 0){
+ //             cb('Ne prokunuvsia',null)
+ //             return
+ //         }
+ //         console.log('prokunuvsia')
+ //         cb(null,energy)
+ //     },1800)
+ // }
+ //
+ //
+ // function eat(energy, cb){
+ //     setTimeout(()=>{
+ //         energy +=300;
+ //         console.log('poiv')
+ //         cb(null,energy)
+ //     },1304)
+ // }
+ //
+ //
+ // function goToWork(energy, cb){
+ //     setTimeout(()=>{
+ //         energy -=500;
+ //         if (energy <= 0){
+ //             cb('Ne dishov',null)
+ //             return
+ //         }
+ //         console.log('dishov')
+ //         cb(null,energy)
+ //     },555)
+ // }
+ //
+ // wakeUp(energy,(err,data)=>{
+ //     if (err){
+ //         console.log(err)
+ //         return
+ //     }
+ //     console.log('energy' + `${data}`)
+ //     console.log(`__`)
+ //     eat(energy,(err,data)=>{
+ //         if (err){
+ //             console.log(err)
+ //             return
+ //         }
+ //         console.log('energy' + `${data}`)
+ //         console.log(`__`)
+ //         goToWork(energy,(err,data)=>{
+ //             if (err){
+ //                 console.log(err)
+ //                 return
+ //             }
+ //             console.log('energy' + `${data}`)
+ //             console.log(`__`)
+ //         })
+ //     })
+ // })
+// Що видиліли те жирніє
+ let divBlock = document.getElementsByClassName('divik')[0]
+ divBlock.onmouseup = function (){
+     let select = document.getSelection()
+     divBlock.innerHTML = divBlock.innerText.replace(select, `<b>${select}</b>`)
+ }
+
+
+</script>
+</body>
+</html>
